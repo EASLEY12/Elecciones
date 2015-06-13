@@ -1,0 +1,51 @@
+
+<form name="bandwidth">
+<p><input value="" name="original" size="20" type="text" placeholder="escriba cantidad a convertir"/>
+<select name="units" size="1">
+<option value="1 "/>metros a centimetros
+<option value="2"/>centimetros a metros 
+<option value="Mb"/>Mb
+<option value="Gb"/>Gb
+
+<input value="Calcular" name="B1" onclick="calculate()" type="button"/></p>
+</form>
+
+<script>
+
+var bytevalue=0
+function calculate(){
+var invalue=document.bandwidth.original.value
+var selectunit = document.bandwidth.units.options[document.bandwidth.units.selectedIndex].value
+if (selectunit=="1")
+bytevalue=invalue 
+else if (selectunit=="Kb")
+bytevalue=invalue*1024
+else if (selectunit=="Mb")
+bytevalue=invalue*1024*1024
+else if (selectunit=="Gb")
+bytevalue=invalue*1024*1024*1024
+
+ //document.write(invalue+" "+selectunit+" es igual a:\n<br>\n-  "+bytevalue+" Bytes\- " +"<br>" +Math.round(bytevalue/1024)+" Kb\n- " +"<br>" +Math.round(bytevalue/1024/1024)+" Mb\n- " +"<br>" +Math.round(bytevalue/1024/1024/1024)+" Gb\n" +"<br>")
+
+var respuesta = selectunit 
+	switch (parseInt(respuesta))
+ 	{ case 1: document.write(  +invalue +"  metros es igual a " +invalue*100  +" cm "); break; 	
+	 case 2: document.write(+ invalue +" centimetros es igual a " + invalue/100 + " metros "); break;
+	case 3: document.write("segun el numero es miercoles "); break;	
+	case 4: document.write("segun el numero es jueves "); break;
+	case 5: document.write("segun el numero es viernes "); break;
+	case 6: document.write("segun el numero es sabado "); break;
+	case 7: document.write("segun el numero es domingo"); break;
+	default: document.write(  " ¿has legido" +"<br>"    +respuesta , " ? "); 
+	}
+
+ }
+
+
+
+
+
+	
+
+
+</script>
